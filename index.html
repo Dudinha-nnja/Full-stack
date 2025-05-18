@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>NeonTurtle</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #0000cc;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo span {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .logo .green {
+      color: limegreen;
+    }
+
+    .logo .purple {
+      color: purple;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      display: flex;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .search-bar button {
+      padding: 8px 12px;
+      border: none;
+      background-color: white;
+      color: #0000cc;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+    .icons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .icons i {
+      margin-right: 5px;
+    }
+
+    nav {
+      margin-left: 20px;
+      margin-top: 10px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .banner {
+      display: block;
+      margin: 20px auto;
+      width: 90%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    h2 {
+      text-align: center;
+      color: rgb(49, 230, 49);
+      margin: 20px 0;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding: 20px 0;
+    }
+    .carousel::-webkit-scrollbar {
+  display: none;
+}
+
+
+    .item {
+      min-width: 230px;
+      max-width: 230px;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+      flex-shrink: 0;
+      border-radius: 8px;
+    }
+
+    .item img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .botoes {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .buy-btn {
+      background-color: #00cc00;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-weight: bold;
+      font-size: 14px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .buy-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .cart-btn {
+      background-color: #1E00FF;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 18px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .cart-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .arrow {
+      background-color: rgba(0, 0, 204, 0.8);
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 12px 16px;
+      color: white;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      z-index: 10;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    .arrow:hover {
+      background-color: #1E00FF;
+      transform: translateY(-50%) scale(1.1);
+      color: #00ffcc;
+    }
+    .contato {
+  padding: 40px;
+  text-align: center;
+}
+
+.contato h2 {
+  color: #2e0d77;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.conteudo-contato {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.info-contato {
+  text-align: left;
+  max-width: 300px;
+  font-size: 20px;
+}
+
+.info-contato p {
+  margin: 10px 0;
+}
+
+.mapa img {
+  width: 800px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.rodape {
+  background-color: #2e0d77;
+  color: white;
+  padding: 20px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.rodape .direitos,
+.rodape .redes-footer {
+  max-width: 300px;
+}
+
+.rodape p {
+  margin: 4px 0;
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <img src="img/leonardo.png" alt="NeonTurtle logo">
+      <span><span class="green">N</span>eon<span class="green">T</span>urtle</span>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Ex: mouse">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="icons">
+      <span><i class="fas fa-shopping-cart"></i> carrinho</span>
+      <span><i class="fas fa-heart"></i> favoritos</span>
+    <a href="login.html"> <span><i class="fas fa-user"></i> minha conta</span></a> 
+    </div>
+  </div>
+
+  <nav>
+    <a href="#">PCs Gamer</a>
+    <a href="#">Notebooks</a>
+    <a href="#">Acessórios para PCs e Jogos</a>
+    <a href="#">Produtos para Celular</a>
+    <a href="#">Vídeos Games</a>
+  </nav>
+</header>
+
+<img src="img/71keNbqaqYL.jpg" alt="Banner Mario" class="banner">
+
+<h2>PROMOÇÕES DA SEMANA</h2>
+
+<div class="carousel-container">
+  <button class="arrow left" onclick="scrollLeft()">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+  <div class="carousel" id="carouse1">
+  
+    <div class="item"><img src="img/spiderman.webp"><p>Jogo Spider-Man - PS4</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/howgarts.webp"><p>Jogo Hogwarts Legacy</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/thelastofus.webp"><p>The Last of Us Remastered</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/elden.webp"><p>Elden Ring</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/assassins.webp"><p>Assassin's Creed Valhalla</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/residenteevil.webp"><p>Resident Evil Village</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/reddead.webp"><p>Red Dead Redemption 2</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/callofduty.webp"><p>Call of Duty MW2</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/world.webp"><p>Monster Hunter World</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/jogo-ps4-horizon-forbidden-west-sony-1.webp"><p>Horizon Forbidden West</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+  </div>
+
+  <button class="arrow right" onclick="scrollRight()">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
+<h2>nossos produtos</h2>
+<div class="carousel-container">
+  <button class="arrow left" onclick="scrollLeft('carousel1')">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  
+  <button class="arrow right" onclick="scrollRight('carousel1')">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+  <div class="carousel" id="carouse2">
+  
+    <div class="item"><img src="img/21718279.jpg"><p>Jogo Spider-Man - PS4</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/howgarts.webp"><p>Jogo Hogwarts Legacy</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/thelastofus.webp"><p>The Last of Us Remastered</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/elden.webp"><p>Elden Ring</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/assassins.webp"><p>Assassin's Creed Valhalla</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/residenteevil.webp"><p>Resident Evil Village</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/reddead.webp"><p>Red Dead Redemption 2</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/callofduty.webp"><p>Call of Duty MW2</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/world.webp"><p>Monster Hunter World</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+    <div class="item"><img src="img/jogo-ps4-horizon-forbidden-west-sony-1.webp"><p>Horizon Forbidden West</p><p>R$:100 brl</p><div class="botoes"><button class="buy-btn">comprar</button><button class="cart-btn"><i class="fas fa-shopping-cart"></i></button></div></div>
+  </div>
+
+  <button class="arrow left" onclick="scrollLeft('carousel2')">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  
+  <button class="arrow right" onclick="scrollRight('carousel2')">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
+<section class="contato">
+  <h2>Precisa entrar em contato com nós?</h2>
+
+  <div class="conteudo-contato">
+    <div class="info-contato">
+      <h3>Nossas redes sociais:</h3>
+      <p>📸 <strong>@NeonTurte_oficial</strong></p>
+      <p>📞 WhatsApp: <strong>61999999999</strong></p>
+      <p>📧 Email: <strong>NeonTurte@gmail.com</strong></p>
+      <p>📍 Endereço: qnp 18 conjunto K lote 18</p>
+    </div>
+
+    <div class="mapa">
+      <h3>Nossa localização</h3>
+      <img src="img/vista-superior-3d-de-um-mapa-com-ponto-de-localizacao-de-destino_34645-1081 (1).avif" alt="Mapa localização" />
+      <!-- Substitua pelo caminho correto ou imagem local se necessário -->
+    </div>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="direitos">
+    <p>Todos os direitos possíveis</p>
+    <p>Direitos autorais: Eduarda Rodrigues</p>
+    <p>Autor: Eduarda Rodrigues</p>
+    <p>Ferramenta usada: Figma</p>
+    <p>Esse modelo serve tanto para desktop quanto para celulares</p>
+  </div>
+  <div class="redes-footer">
+    <p>📸 @NeonTurte_oficial</p>
+    <p>📞 WhatsApp: 61999999999</p>
+    <p>📧 Email: NeonTurte@gmail.com</p>
+  </div>
+</footer>
+<script>
+  function scrollLeft() {
+    const container = document.getElementById("carousel1");
+    container.scrollLeft -= 250;
+  }
+
+  function scrollRight() {
+    const container = document.getElementById("carousel1");
+    container.scrollLeft += 250;
+  }
+  function scrollLeft() {
+    const container = document.getElementById("carouse2");
+    container.scrollLeft -= 250;
+  }
+
+  function scrollRight() {
+    const container = document.getElementById("carouse2");
+    container.scrollLeft += 250;
+  }
+</script>
+
+
+
+</body>
+</html>
