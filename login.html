@@ -1,0 +1,123 @@
+<style>
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+     header {
+      background-color: #0000cc;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo span {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .logo .green {
+      color: limegreen;
+    }
+
+    .logo .purple {
+      color: purple;
+    }
+
+    .login-container {
+      max-width: 400px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      text-align: center;
+    }
+  
+    .login-container h2 {
+      color: #0000cc;
+      margin-bottom: 30px;
+    }
+  
+    .login-container input[type="email"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+  
+    .login-container button.login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #0000cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+  
+    .login-container button.login-btn:hover {
+      background-color: #000099;
+    }
+  
+    .login-container .forgot-link {
+      display: block;
+      margin-top: 15px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #0000cc;
+    }
+  
+    .login-container .forgot-link:hover {
+      text-decoration: underline;
+    }
+  
+    .login-container .register-btn {
+      margin-top: 25px;
+      background-color: limegreen;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+  
+    .login-container .register-btn:hover {
+      background-color: #32cd32;
+    }
+  </style>
+    <header>
+        <div class="logo">
+          <img src="img/leonardo.png" alt="Logo">
+          <span><span class="green">N</span>eon<span class="green">T</span>urtle</span>
+        </div>
+      </header>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Senha" required>
+      <button type="submit" class="login-btn">Entrar</button>
+      <a href="#" class="forgot-link">Esqueci minha senha</a>
+    <a href="cadastrar.html">  <button type="button" class="register-btn">Cadastrar</button></a>
+    </form>
+  </div>
+  
